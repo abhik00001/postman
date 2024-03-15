@@ -18,3 +18,13 @@ def home(request):
         "message" : "data fetch Successfully",
         "data" : serialize_val.data
     })
+
+@api_view(["GET"])
+def singleget(request , id):
+    val = todo.objects.get(id = id)
+    serializedata = todoserializer(val)
+
+    return Response({
+        "message":f"{serializedata} get successfully",
+        "data" : serializedata.data
+    })
