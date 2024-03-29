@@ -25,7 +25,7 @@ def singleget(request , id):
     serializedata = todoserializer(val)
 
     return Response({
-        "message":f"{serializedata} get successfully",
+        "message":f"{val} get successfully",
         "data" : serializedata.data
     })
 
