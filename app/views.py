@@ -28,3 +28,14 @@ def singleget(request , id):
         "message":f"{serializedata} get successfully",
         "data" : serializedata.data
     })
+
+@api_view(['POST'])
+def savethistodo(request):
+    serlizedata = todoserializer(data = request.data)
+    if serlizedata.is_valid():
+        serlizedata.save()
+
+    return Response({
+        "message" : "Data saved Sucessfully",
+        "data" : serlizedata.data
+    })
